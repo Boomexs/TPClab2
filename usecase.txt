@@ -1,0 +1,25 @@
+@startuml
+
+actor User as "User"
+
+usecase "Add Book" as UC1
+usecase "Add Reader" as UC2
+usecase "Add Copies to Book" as UC3
+usecase "Borrow Book" as UC4
+usecase "Return Book" as UC5
+usecase "List Available Books" as UC6
+usecase "List Borrowed Books" as UC7
+usecase "Get Help" as UC8
+usecase "Exit Program" as UC9
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+
+@enduml

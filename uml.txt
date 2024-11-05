@@ -1,0 +1,74 @@
+@startuml
+
+' Define the LibraryCLI class
+class LibraryCLI {
+    +start(library: Library): void
+    +printHelp(): void
+    +parseArguments(command: String): List<String>
+}
+
+' Define the Book class
+class Book {
+    -title: String
+    -author: String
+    -copies: List<Copy>
+    +Book(title: String, author: String)
+    +addCopy(copy: Copy): void
+    +getTitle(): String
+    +getAuthor(): String
+    +getCopies(): List<Copy>
+}
+
+' Define the Copy class
+class Copy {
+    -copyId: int
+    -isAvailable: boolean
+    -book: Book
+    +Copy(copyId: int, book: Book)
+    +isAvailable(): boolean
+    +borrow(): void
+    +returnCopy(): void
+    +getCopyId(): int
+    +getBook(): Book
+}
+
+' Define the Reader class
+class Reader {
+    -readerId: int
+    -name: String
+    -borrowedBooks: List<Copy>
+    +Reader(readerId: int, name: String)
+    +borrowBook(copy: Copy): void
+    +returnBook(copy: Copy): void
+    +getBorrowedBooks(): List<Copy>
+    +getName(): String
+    +getReaderId(): int
+}
+
+' Define the Library class
+class Library {
+    -books: List<Book>
+    -readers: List<Reader>
+    +Library()
+    +addBook(book: Book): void
+    +addReader(reader: Reader): void
+    +borrowBook(readerId: int, bookTitle: String): void
+    +returnBook(readerId: int, bookTitle: String): void
+    +addCopiesToBook(title: String, numberOfCopies: int): void
+    +findBookByTitle(title: String): Book
+    +findReaderById(id: int): Reader
+    +getBooks(): List<Book>
+}
+
+' Define relationships
+LibraryCLI ..> Library : uses
+LibraryCLI ..> Book : uses
+LibraryCLI ..> Copy : uses
+LibraryCLI ..> Reader : uses
+LibraryCLI ..> Library : interacts
+
+Library "1" -- "many" Book
+Book "1" -- "many" Copy
+Reader "1" -- "many" Copy
+Library "1" -- "many" Reader
+@enduml
