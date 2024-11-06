@@ -1,0 +1,16 @@
+Przyklad 1 Dodanie nowej ksiazki do systemu
+
+Aktorzy:
+Biblotekarz
+
+Scenariusz:
+Bibliotekarz wlacza system
+
+Bibliotekarz dodaje ksiazke za pomoca komendy addbook "Biblia" "Bog Jezus Chrystu i inni" 3
+
+Bibliotekarz wpisuje komende listavailablebooks
+output powinien zawierac w sobie 3 kopie "Bibli" ktore powinny byc dostepne do wypozyczenia
+
+Bibliotekarz wylacza system za pomoca komedy exit
+
+Koniec scenariusza
